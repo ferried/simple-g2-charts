@@ -39,11 +39,13 @@ const YzAreaChart: React.FC<YzAreaChartProps<any>> = ({
         chart.data(data);
       }
       if (chartExp) {
-        chart.line().position(chartExp);
         chart.area().position(chartExp);
+        if (colorExp) {
+          chart.area().position(chartExp).color(colorExp);
+        }
       } else {
-        chart.line().position(`${xindex}*${yindex}`);
         chart.area().position(`${xindex}*${yindex}`);
+        chart.area().position(`${xindex}*${yindex}`).color(`${yindex}`);
       }
       chart.render();
       setChart(chart);
