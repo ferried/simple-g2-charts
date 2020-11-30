@@ -1,6 +1,6 @@
 {
   "name": "simple-g2-charts",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "main": "build/index.js",
   "module": "build/index.esm.js",
   "files": [
@@ -14,8 +14,7 @@
     "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6006",
     "storybook:export": "build-storybook",
-    "g": "node ./util/create-component",
-    "prepublishOnly": "npm run build"
+    "g": "node ./util/create-component"
   },
   "repository": {
     "type": "git",
@@ -78,5 +77,8 @@
     "sass-loader": "^8.0.0",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@antv/g2": "^4.0.15"
   }
 }
