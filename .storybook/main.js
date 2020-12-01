@@ -4,8 +4,11 @@ module.exports = {
   stories: ["../src/**/*.stories.tsx"],
   // Add any Storybook addons you want here: https://storybook.js.org/addons/
   addons: [
-    '@storybook/addon-actions/register',
-    '@storybook/addon-knobs/register',
+    "@storybook/addon-storysource",
+    "@storybook/addon-docs",
+    "@storybook/addon-knobs",
+    "@storybook/addon-actions",
+    "@storybook/addon-notes",
   ],
   webpackFinal: async (config) => {
     config.module.rules.push({
