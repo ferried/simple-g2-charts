@@ -61,7 +61,7 @@ export const SingleAreaChart: React.FC<any> = () => {
       yname="销售量"
       yindex="sales"
       getChartRef={($ref: Chart) => {
-        console.log($ref)
+        console.log($ref);
         setChart($ref);
       }}
     />

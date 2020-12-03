@@ -64,17 +64,14 @@ const YzAreaChart: React.FC<YzAreaChartProps> = ({
       }
       if (chartExp) {
         if (colorExp) {
-          chart.interval().position(chartExp).color(colorExp);
           chart.line().position(chartExp).color(colorExp);
           chart.area().position(chartExp).color(colorExp);
         } else {
-          chart.interval().position(chartExp);
           chart.line().position(chartExp);
           chart.area().position(chartExp);
         }
       } else if (xindex && yindex) {
         if (colorExp) {
-          chart.interval().position(`${xindex}*${yindex}`).color(colorExp);
           chart.line().position(`${xindex}*${yindex}`).color(colorExp);
           chart.area().position(`${xindex}*${yindex}`).color(colorExp);
         } else {
@@ -82,6 +79,13 @@ const YzAreaChart: React.FC<YzAreaChartProps> = ({
           chart.area().position(`${xindex}*${yindex}`);
         }
       }
+      chart.tooltip({
+        showCrosshairs: true,
+        follow: true,
+        crosshairs: {
+          type: "xy", // 展示十字辅助线
+        },
+      });
       chart.render();
       setChart(chart);
       if (getChartRef) {
