@@ -5,59 +5,97 @@ import { YzAreaChartProps } from "./YzAreaChart.types";
 
 import "./YzAreaChart.scss";
 
-const YzAreaChart: React.FC<YzAreaChartProps<any>> = ({
+const YzAreaChart: React.FC<YzAreaChartProps> = ({
   height,
   width,
   data,
-  xname,
   chartExp,
   colorExp,
+  xname,
   xindex,
+  xformat,
   yname,
   yindex,
+  yformat,
   autoFit,
-  callback,
+  getChartRef,
 }) => {
-  const [chart, setChart] = useState<Chart>(null);
+  const [chart, setChart] = useState<Chart>();
+
+  // didMount 设置chart
   useEffect(() => {
-    if (!chart) {
+    if (data && !chart) {
       const chart = new Chart({
         container: "container",
-        width: width,
         height: height,
+        width: width,
         autoFit: autoFit,
       });
-      if (xname) {
-        chart.axis(xindex, { title: {} });
-        chart.scale(xindex, { alias: xname });
-      }
-      if (yname) {
-        chart.axis(yindex, { title: {} });
-        chart.scale(yindex, { alias: yname });
-      }
       if (data) {
         chart.data(data);
+      } else {
+        chart.data([]);
+      }
+      if (xname && xindex) {
+        if (xformat) {
+          chart.axis(xindex, {
+            label: {
+              formatter: xformat,
+            },
+            title: {},
+          });
+        } else {
+          chart.axis(xindex, { title: {} });
+        }
+        chart.scale(xindex, { alias: xname });
+      }
+      if (yname && yindex) {
+        if (yformat) {
+          chart.axis(yindex, {
+            label: {
+              formatter: yformat,
+            },
+            title: {},
+          });
+        } else {
+          chart.axis(yindex, { title: {} });
+        }
+        chart.scale(yindex, { alias: yname });
       }
       if (chartExp) {
-        chart.area().position(chartExp);
         if (colorExp) {
+          chart.interval().position(chartExp).color(colorExp);
+          chart.line().position(chartExp).color(colorExp);
           chart.area().position(chartExp).color(colorExp);
+        } else {
+          chart.interval().position(chartExp);
+          chart.line().position(chartExp);
+          chart.area().position(chartExp);
         }
-      } else {
-        chart.area().position(`${xindex}*${yindex}`);
-        chart.area().position(`${xindex}*${yindex}`).color(`${yindex}`);
+      } else if (xindex && yindex) {
+        if (colorExp) {
+          chart.interval().position(`${xindex}*${yindex}`).color(colorExp);
+          chart.line().position(`${xindex}*${yindex}`).color(colorExp);
+          chart.area().position(`${xindex}*${yindex}`).color(colorExp);
+        } else {
+          chart.line().position(`${xindex}*${yindex}`);
+          chart.area().position(`${xindex}*${yindex}`);
+        }
       }
       chart.render();
       setChart(chart);
-    } else {
-      if (data) {
-        chart.changeData(data);
+      if (getChartRef) {
+        getChartRef(chart);
       }
     }
-    if (callback) {
-      callback(chart);
+  }, [data, chart]);
+
+  // data变化触发
+  useEffect(() => {
+    if (data && chart) {
+      chart.changeData([...data]);
     }
-  });
+  }, [data, chart]);
 
   return <div id="container"></div>;
 };
