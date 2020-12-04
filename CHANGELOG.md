@@ -1,7 +1,7 @@
 # Changelog
 
-<a name="1.0.6"></a>
-## 1.0.6 (2020-12-04)
+<a name="1.0.7"></a>
+## 1.0.7 (2020-12-04)
 
 ### Added
 
@@ -18,6 +18,7 @@
 
 ### Fixed
 
+- 🐛 (yzlongareachart): fix import bug [[1315713](https://github.com/ferried/simple-g2-charts/commit/1315713764e4cfc052f2ef91e5d8c28c6e600a6f)]
 - 🐛 (longarea): fix legend [[9e84884](https://github.com/ferried/simple-g2-charts/commit/9e848846abb438eeb61ed3a09f61a7d80b3b54ee)]
 - 🐛 (charts): fix charts change data [[850c1ed](https://github.com/ferried/simple-g2-charts/commit/850c1ed1258a01f4aa4194afe0e5c290653bb446)]
 
