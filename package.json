@@ -1,6 +1,6 @@
 {
   "name": "simple-g2-charts",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "build/index.js",
   "module": "build/index.esm.js",
   "files": [
@@ -13,6 +13,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6006",
+    "publish": "npm run build && npm  publish",
     "storybook:export": "build-storybook",
     "g": "node ./util/create-component"
   },
