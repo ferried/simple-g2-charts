@@ -8,6 +8,9 @@ export const ListAreaListChart: React.FC<any> = () => {
   const [data, setData] = useState<Array<any>>();
 
   const dataSource = [
+    { Data: "2009-12", item: "a", sales: 0 },
+    { Data: "2009-12", item: "b", sales: 0 },
+    { Data: "2009-12", item: "c", sales: 0 },
     { Data: "2010-01", item: "a", sales: 1500 },
     { Data: "2010-02", item: "a", sales: 1600 },
     { Data: "2010-03", item: "a", sales: 1700 },
@@ -44,10 +47,10 @@ export const ListAreaListChart: React.FC<any> = () => {
       width={300}
       autoFit={true}
       xformat={(text) => {
-        return `xformat: ${text}`;
+        return `${text}年`;
       }}
       yformat={(text) => {
-        return `yformat: ${text}`;
+        return `${text}元`;
       }}
       data={data}
       xname="日期"

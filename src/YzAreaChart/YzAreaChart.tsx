@@ -82,6 +82,7 @@ const YzAreaChart: React.FC<YzAreaChartProps> = ({
       chart.tooltip({
         showCrosshairs: true,
         follow: true,
+        shared: true,
         crosshairs: {
           type: "xy", // 展示十字辅助线
         },
