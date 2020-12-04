@@ -67,6 +67,6 @@ export const ListAreaListChart: React.FC<any> = () => {
 };
 
 export default {
-  title: "面积图",
+  title: "多数据面积图",
   component: ListAreaListChart,
 };

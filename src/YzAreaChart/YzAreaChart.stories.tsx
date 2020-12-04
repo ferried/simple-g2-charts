@@ -69,6 +69,6 @@ export const SingleAreaChart: React.FC<any> = () => {
 };
 
 export default {
-  title: "面积图",
+  title: "单数据面积图",
   component: SingleAreaChart,
 };

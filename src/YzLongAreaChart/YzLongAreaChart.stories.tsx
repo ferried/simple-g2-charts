@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import YzLongAreaChart from "./YzLongAreaChart";
 
-export const YzLongAreaChartStory: React.FC<any> = () => {
+export const LongAreaChartStory: React.FC<any> = () => {
   const source = [
     { time: "2009/6/12 2:00", flow: 0.97, rain: 0.77 },
     { time: "2009/6/12 3:00", flow: 0.96, rain: 0.88 },
@@ -85,6 +85,6 @@ export const YzLongAreaChartStory: React.FC<any> = () => {
 };
 
 export default {
-  title: "面积图",
-  component: YzLongAreaChartStory,
+  title: "时间面积图",
+  component: LongAreaChartStory,
 };
