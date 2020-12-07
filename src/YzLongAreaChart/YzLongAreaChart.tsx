@@ -23,7 +23,7 @@ const YzLongAreaChart: React.FC<YzLongAreaChartProps> = ({
   useEffect(() => {
     if (id && data && !chart) {
       const chart = new Chart({
-        container: "container",
+        container: id,
         height: height,
         width: width,
         autoFit: autoFit,
@@ -83,7 +83,7 @@ const YzLongAreaChart: React.FC<YzLongAreaChartProps> = ({
       chart.changeData(data);
     }
   }, [data, chart]);
-  return <div id="container"></div>;
+  return <div id={id}></div>;
 };
 
 export default YzLongAreaChart;
