@@ -7,6 +7,7 @@ import "./YzLongAreaChart.scss";
 import { Chart } from "@antv/g2";
 
 const YzLongAreaChart: React.FC<YzLongAreaChartProps> = ({
+  id,
   height,
   width,
   data,
@@ -20,7 +21,7 @@ const YzLongAreaChart: React.FC<YzLongAreaChartProps> = ({
 }) => {
   const [chart, setChart] = useState<Chart>();
   useEffect(() => {
-    if (data && !chart) {
+    if (id && data && !chart) {
       const chart = new Chart({
         container: "container",
         height: height,
@@ -76,7 +77,7 @@ const YzLongAreaChart: React.FC<YzLongAreaChartProps> = ({
         getChartRef(chart);
       }
     }
-  }, [data, chart]);
+  }, [data, chart, id]);
   useEffect(() => {
     if (data && chart) {
       chart.changeData(data);

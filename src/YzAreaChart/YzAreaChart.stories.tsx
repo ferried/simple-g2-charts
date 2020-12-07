@@ -46,6 +46,7 @@ export const SingleAreaChart: React.FC<any> = () => {
 
   return (
     <YzAreaChart
+      id="str"
       height={300}
       width={300}
       autoFit={true}

@@ -6,6 +6,7 @@ import { YzAreaChartProps } from "./YzAreaChart.types";
 import "./YzAreaChart.scss";
 
 const YzAreaChart: React.FC<YzAreaChartProps> = ({
+  id,
   height,
   width,
   data,
@@ -24,9 +25,9 @@ const YzAreaChart: React.FC<YzAreaChartProps> = ({
 
   // didMount 设置chart
   useEffect(() => {
-    if (data && !chart) {
+    if (id && data && !chart) {
       const chart = new Chart({
-        container: "container",
+        container: id,
         height: height,
         width: width,
         autoFit: autoFit,
@@ -93,7 +94,7 @@ const YzAreaChart: React.FC<YzAreaChartProps> = ({
         getChartRef(chart);
       }
     }
-  }, [data, chart]);
+  }, [data, chart, id]);
 
   // data变化触发
   useEffect(() => {
@@ -102,7 +103,7 @@ const YzAreaChart: React.FC<YzAreaChartProps> = ({
     }
   }, [data, chart]);
 
-  return <div id="container"></div>;
+  return <div id={id}> </div>;
 };
 
 export default YzAreaChart;

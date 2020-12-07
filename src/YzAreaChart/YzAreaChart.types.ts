@@ -2,7 +2,7 @@
  * @Author: ferried
  * @Email: harlancui@outlook.com
  * @Date: 2020-11-30 11:28:59
- * @LastEditTime: 2020-12-02 18:09:54
+ * @LastEditTime: 2020-12-07 15:20:17
  * @LastEditors: ferried
  * @Description: Basic description
  * @FilePath: /simple-g2-charts/src/YzAreaChart/YzAreaChart.types.ts
@@ -18,6 +18,7 @@ type formatCallbackFunc = (text: string, item: ListItem, index: number) => any
  * 参数
  */
 export interface YzAreaChartProps {
+    id: string
     /**
      * 数据
      */

@@ -32,6 +32,7 @@ interface LongAreaScale {
 
 
 export interface YzLongAreaChartProps {
+    id: string,
     scales?: Array<LongAreaScale>;
     // padding
     padding?: Array<number>;

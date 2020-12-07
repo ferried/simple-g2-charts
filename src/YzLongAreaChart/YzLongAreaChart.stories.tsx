@@ -50,6 +50,7 @@ export const LongAreaChartStory: React.FC<any> = () => {
 
   return (
     <YzLongAreaChart
+      id="YzLongAreaChart"
       data={data}
       xindex="time"
       autoFit={true}
